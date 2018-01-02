@@ -4,9 +4,7 @@ scotchApp.controller('editCobrandController', function($scope, $rootScope, mySer
     $rootScope.navBar = true;
     $rootScope.progressBar = true;
     var fetchSingleCobrandDetailsParams = {
-
         CobrandId: $rootScope.CobrandDetails.id
-
     };
 
     myService.postRequest(url.webSiteMainUrl + 'fetchSingleCobrandDetails.php', fetchSingleCobrandDetailsParams).then(function(data) {
@@ -18,9 +16,11 @@ scotchApp.controller('editCobrandController', function($scope, $rootScope, mySer
         } else {
             $scope.hideInFL = true;
         }
+        $scope.envsType = data[0].is_YSL;
         $scope.BankName = data[0].BankName;
         $scope.ProductType = data[0].Product;
         $scope.productTypes = ['IAV', 'FL', 'PFM3.0'];
+        $scope.envsTypes = ['YSL', 'REST'];
         $scope.restUrl = data[0].restUrl;
         $scope.finAppUrl = data[0].finAppUrl;
         $scope.cobrandName = data[0].cobrandName;
@@ -68,7 +68,8 @@ scotchApp.controller('editCobrandController', function($scope, $rootScope, mySer
             is_itemAccountIdFlow: $scope.is_itemAccoutIdFlow,
             is_ANM: $scope.is_ANM,
             Product: $scope.ProductType,
-            YSLURL:$scope.YSLURL
+            YSLURL:$scope.YSLURL,
+            is_YSL:$scope.envsType
         };
 
         myService.postRequest(url.webSiteMainUrl + 'UpdateCobrandsDetails.php', EditCobrandDetailsParams).then(function(data) {

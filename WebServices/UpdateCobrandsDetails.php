@@ -14,11 +14,12 @@ $is_itemAccountIdFlow = $_POST['is_itemAccountIdFlow'];
 $is_ANM = $_POST['is_ANM'];
 $Product = $_POST['Product'];
 $YSLURL = $_POST['YSLURL'];
+$is_YSL = $_POST['is_YSL'];
 $cobrandPassword =  base64_encode($cobrandPassword1);
 
 $data=array();
 
-$sql = mysqli_query($conn,"UPDATE CobrandsList SET YSLURL = '".$YSLURL."', BankName = '".$BankName."', restUrl = '".$restUrl."', finAppUrl = '".$finAppUrl."',cobrandName = '".$cobrandName."',cobrandPassword = '".$cobrandPassword."', is_itemAccountIdFlow = $is_itemAccountIdFlow ,is_AccountNumberMatch = $is_ANM ,Product = '".$Product."'  where id = '".$CobrandId."'");
+$sql = mysqli_query($conn,"UPDATE CobrandsList SET YSLURL = '".$YSLURL."', is_YSL = '".$is_YSL."' ,BankName = '".$BankName."', restUrl = '".$restUrl."', finAppUrl = '".$finAppUrl."',cobrandName = '".$cobrandName."',cobrandPassword = '".$cobrandPassword."', is_itemAccountIdFlow = $is_itemAccountIdFlow ,is_AccountNumberMatch = $is_ANM ,Product = '".$Product."'  where id = '".$CobrandId."'");
 // echo "UPDATE CobrandsList SET BankName = '".$BankName."', restUrl = '".$restUrl."', finAppUrl = '".$finAppUrl."',cobrandName = '".$cobrandName."',cobrandPassword = '".$cobrandPassword."', is_itemAccountIdFlow = $is_itemAccountIdFlow ,is_AccountNumberMatch = $is_ANM ,Product = '".$Product."'  where id = '".$CobrandId."'";
 if(!$sql){
     $status=array("status"=>0);

@@ -76,6 +76,16 @@
                     </md-input-container>
                 </div>
             </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Select Envorment Type</label>
+                        <md-select ng-model="envsType" required>
+                            <md-option ng-repeat="envsType in envsTypes" ng-value="envsType">{{envsType}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
             <div class="row launchSectionInputFieldsNormal1">
                 <div class="col s12">
                     <md-input-container style="width:100%">
