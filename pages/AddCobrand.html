@@ -1,0 +1,128 @@
+<br>
+<br>
+<br>
+<br>
+<div class="AddCobrandPage z-depth-1" ng-show="showpage">
+    <h4 class="Title">Add New Cobrand</h4>
+    <form ng-cloak name="AddCobrandForm" novalidate>
+        <md-dialog-content>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Name</label>
+                        <input type="text" ng-model="BankName" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Envs</label>
+                        <md-select ng-model="envs" required>
+                            <md-option ng-repeat="envs in Envstypes" ng-value="envs">{{envs}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Select Product</label>
+                        <md-select ng-model="ProductType" ng-change="ProductTypeCheck()" required>
+                            <md-option ng-repeat="ProductType in productTypes" ng-value="ProductType">{{ProductType}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <span ng-show="hideInFL">
+                <div class="row launchSectionInputFieldsNormal">
+                    <div class="col s12">
+                        <md-input-container style="width:100%;">
+                            <label>is_itemAccoutIdFlow</label>
+                            <md-select ng-model="is_itemAccoutIdFlow" required="is_IAV">
+                                <md-option ng-repeat="is_itemAccoutIdFlow in itemAccoutIdFlowType" ng-value="is_itemAccoutIdFlow">{{is_itemAccoutIdFlow}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="row launchSectionInputFieldsNormal">
+                    <div class="col s12">
+                        <md-input-container style="width:100%;">
+                            <label>Full Name Matching</label>
+                            <md-select ng-model="is_ANM" required="is_IAV">
+                                <md-option ng-repeat="is_ANM in ANMTypes" ng-value="is_ANM">{{is_ANM}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+            </span>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Rest Url</label>
+                        <input type="text" ng-model="restUrl" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>FinApp Url</label>
+                        <input type="text" ng-model="finAppUrl" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Login Username</label>
+                        <input type="text" ng-model="cobrandName" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Login Password</label>
+                        <input type="text" ng-model="cobrandPassword" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>YSL Url</label>
+                        <input type="text" ng-model="YSLURL" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Url Type</label>
+                        <md-select ng-model="is_YSL" required>
+                            <md-option ng-repeat="is_YSL in is_urlTypes" ng-value="is_YSL">{{is_YSL}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Sync Api Enabled</label>
+                        <md-select ng-model="is_SyncApi" required>
+                            <md-option ng-repeat="is_SyncApi in is_SyncApiTypes" ng-value="is_SyncApi">{{is_SyncApi}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s12">
+                <div class="footer">
+                    <button class="waves-effect waves-light btn primary createCobrandButton" ng-click="addCobrandButtonClicked()" ng-disabled="AddCobrandForm.$invalid">Create Cobrand</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+<div class="AddCobrandPage z-depth-1">
+    <h4 class="Title">Edit Cobrand</h4>
+    <form ng-cloak name="AddCobrandForm" novalidate>
+        <br>
+        <md-dialog-content>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Name</label>
+                        <input type="text" ng-model="BankName" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>YSL Url</label>
+                        <input type="text" ng-model="YSLURL" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Login Username</label>
+                        <input type="text" ng-model="cobrandName" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Login Password</label>
+                        <input type="text" ng-model="cobrandPassword" required>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s12">
+                <div class="footer">
+                    <button class="waves-effect waves-light btn primary createCobrandButton" ng-click="editButtonClicked()" ng-disabled="AddCobrandForm.$invalid">Edit Cobrand</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

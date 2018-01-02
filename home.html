@@ -1,0 +1,223 @@
+<div style="height: 70px;"></div>
+<div class="homePage">
+    <div class="row">
+        <div ng-include="showCobrandList"></div>
+        <!-- Show Fields if a cobrand is SSO -->
+        <div ng-show="showSSOField">
+            <!-- <div ng-include="ShowSSOCobrandFields"></div> -->
+            <div class="col s12 m6 l6 xl6" style="padding: 0px 10px 0px 10px !important;">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header active" ng-click="SingleCobrandDetailShowButonClicked()" style="background: #f7f7f7;color:black;"><i class="material-icons">filter_drama</i>Launch Section
+                        </div>
+                        <div class="collapsible-body launchSection">
+                            <div class="row launchSectionInputFields">
+                                <div class="col s12 chooseMultipleFinappInput">
+                                    <input placeholder="Enter Finapp Id" type="text" class="chooseMultipleFinappInput" required ng-model="defaultFinappId" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                                </div>
+                            </div>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s12 chooseMultipleFinappInput">
+                                    <input placeholder="Enter Subject Name" type="text" class="chooseMultipleFinappInput" required ng-model="defaultSubject" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                                </div>
+                            </div>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s12 chooseMultipleFinappInput">
+                                    <input placeholder="Extra Params" type="text" class="chooseMultipleFinappInput" required ng-model="defaultExtraParams" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                                </div>
+                            </div>
+                            <div class="row launchSectionInputFieldsTextArea">
+                                <div class="col s12 chooseMultipleFinappInput">
+                                    <textarea id="textarea1" class="materialize-textarea" placeholder="SAML Attributes" required ng-model="samlAttributes"></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col s12">
+                                    <a class="waves-effect waves-light btn primary launchButton" ng-click="SSOCobrandLogin()">Launch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Show Fields if a cobrand is NON-SSO -->
+        <div ng-show="shownonSSOField">
+            <!-- <div ng-include="ShowNONSSOCobrandFields"></div> -->
+            <div class="col s12 m6 l6 xl6" style="padding: 0px 10px 0px 10px !important;">
+                <ul class="collapsible" data-collapsible="accordion" ng-show="LaunchSectionView">
+                    <li>
+                        <div class="collapsible-header active" ng-click="SingleCobrandDetailShowButonClicked()" style="background: #f7f7f7;color:black;"><i class="material-icons">filter_drama</i>Launch Section
+                        </div>
+                        <div class="collapsible-body launchSection">
+                            <div class="row" style="margin-top: 20px;margin-bottom: 0px">
+                                <div class="col s12" style="padding:0px 0px 0px 0px !important">
+                                    <div ng-show="hideInFL" angucomplete-alt id="ex1" placeholder="Enter institution name(for which you want to create itemAccounId)." pause="300" selected-object="selectedSite" local-data="siteLists" local-search="searchBanks" title-field="BankName" minlength="3" input-class="form-control form-control-small" match-class="highlight">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s4 m4 l4 xl4">Select User Type
+                                    <a class="tooltipped hide-on-med-and-down" tooltip-position="top" tooltip-delay="50" data-tooltip="Select a user type.">
+                    <i class="material-icons">info</i>
+                    </a>
+                                </div>
+                                <div class="col s8 m8 l8 xl8 right-text">
+                                    <md-radio-group ng-model="userType" ng-change="userTypeChange()">
+                                        <md-radio-button value="newUser">New User</md-radio-button>
+                                        <md-radio-button value="lastusercreated">Existing User</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <span ng-show="lastusercreatedShow">
+                                <div class="row launchSectionInputFields">
+                                    <div class="col s4 m4 l4 xl4">Choose User</div>
+                                    <div class="col s8 m8 l8 xl8" style="text-align: right;">
+                                      <md-input-container style="width:95%;padding-left:3% !important;">
+                                        <md-select ng-model="lastUserCreatedDataa" ng-change="lastUserCreatedDataChange()">
+                                            <md-option ng-repeat="lastUserCreatedDataa in lastUserCreatedData" ng-value="lastUserCreatedDataa">{{lastUserCreatedDataa.userName}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </span>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s3">Dag catalog <a class="tooltipped hide-on-med-and-down" tooltip-position="top" tooltip-delay="50" data-tooltip="For IAV product select the catelog which will display Accounts details(First and last name)."><i class="material-icons">info</i></a></div>
+                                <div class="col s9" style="text-align: right;">
+                                    <md-input-container style="width:95%;padding-left:3% !important;">
+                                        <md-select ng-model="UserSelect" ng-change="chooseUserChange()">
+                                            <md-option ng-repeat="UserSelect in UserSelects" ng-value="UserSelect">{{UserSelect.name}}</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <span ng-show="hideInFL">
+                        <div class="row launchSectionInputFields">
+                        <div class="col s5">Account Type <a class="tooltipped" tooltip-position="top" tooltip-delay="50" data-tooltip="Select the appropriate account type."><i class="material-icons">info</i></a></div>
+                            <div class="col s7 right-text">
+                                <md-radio-group ng-model="accountType">
+                                    <md-radio-button value="2">Saving</md-radio-button>
+                                    <md-radio-button value="1">Checking</md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </div>
+                    </span>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s4 m4 l4 xl4">Multiple finapp <a class="tooltipped hide-on-med-and-down" tooltip-position="top" tooltip-delay="50" data-tooltip="If an application is of an OLB(Online Banking) implementation. Then select TRUE and provide list of finapp ids. eg., 10003700,10003751."><i class="material-icons">info</i></a></div>
+                                <div class="col s8 m4 l4 xl4 right-text">
+                                    <md-radio-group ng-model="chooseMultipleFinapp" ng-change="chooseMultipleFinappChange()">
+                                        <md-radio-button value="false">False</md-radio-button>
+                                        <md-radio-button value="true">True</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <div class="row launchSectionInputFields" ng-show="chooseMultipleFinappInputShow">
+                                <div class="col s12 chooseMultipleFinappInput">
+                                    <input placeholder="Please add main finapp first then Use comma for more finapp" type="text" class="chooseMultipleFinappInput" required ng-model="chooseMultipleFinappInput" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                                </div>
+                            </div>
+                            <span ng-show="hideInFL">
+                        <div class="row launchSectionInputFields">
+                            <div class="col s4">Choose Locale <a class="tooltipped" tooltip-position="top" tooltip-delay="50" data-tooltip="Select locale type"><i class="material-icons">info</i></a></div>
+                            <div class="col s8 right-text">
+                                <md-input-container style="width:95%;padding-left:3% !important;">
+                                    <md-select ng-model="UserLocale">
+                                        <md-option ng-repeat="UserLocale in UserLocales" ng-value="UserLocale">{{UserLocale}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+
+                        <div class="row launchSectionInputFields">
+                            <div class="col s4">Select User Flow <a class="tooltipped" tooltip-position="top" tooltip-delay="50" data-tooltip="Select appropriate user flow."><i class="material-icons">info</i></a></div>
+                            <div class="col s8 right-text">
+                                <md-radio-group ng-model="userFlowType" ng-change="userFlowTypeChange()">
+                                    <md-radio-button value="Success">Success</md-radio-button>
+                                    <md-radio-button value="Failure">Failure</md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </div>
+
+                    </span>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s4">Launch Style
+                                    <!-- <a class="tooltipped" data-position="top" data-delay="50" data-tooltip=""><i class="material-icons">info</i></a> -->
+                                </div>
+                                <div class="col s8 right-text">
+                                    <md-radio-group ng-model="openStyle">
+                                        <md-radio-button value="newWindow">New Tab</md-radio-button>
+                                        <md-radio-button value="popup">New Window</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col s12">
+                                    <a class="waves-effect waves-light btn primary launchButton" ng-click="launchButtonClicked()">Launch</a>
+                                </div>
+                                <div class="col s12">
+                                    <a class="waves-effect waves-light btn primary launchButton" ng-click="getAccountSuccessData()">Get Data</a>
+                                </div>
+                            </div>
+                            <!-- <div class="col s12">
+                                <pre ng-bind-html="accountVerificationData | prettify"></pre>
+                            </div> -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col s12 m3 l3 xl3 cobrandProgressDetails" ng-show="cobrandProgressDetails">
+            <ul class="collection with-header">
+                <li class="collection-header">
+                    <h5>View Progress</h5>
+                </li>
+            </ul>
+            <ul class="collection">
+                <!-- <li class="collection-header"></li> -->
+                <li class="collection-item">
+                    <div>Cobrand Login<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{CobrandLoginStatusColor}} !important;">{{CobrandLoginStatus}}</i></a></div>
+                </li>
+                <li class="collection-item">
+                    <div>User Login<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{UserLoginStatusColor}} !important;">{{UserLoginStatus}}</i></a></div>
+                </li>
+                <li class="collection-item">
+                    <div>Get Token<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{GetTokenStatusColor}} !important;">{{GetTokenStatus}}</i></a></div>
+                </li>
+                <li class="collection-item" ng-show="GetitemAccountIdStatus1">
+                    <div>Get itemAccountId<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{GetitemAccountIdStatusColor}} !important;">{{GetitemAccountIdStatus}}</i></a></div>
+                </li>
+                <li class="collection-item">
+                    <div>Successful<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{launchFastlinkStatusColor}} !important;">{{launchFastlinkStatus}}</i></a></div>
+                </li>
+            </ul>
+            <ul class="collection with-header" ng-show="showMatchingDetails">
+                <li class="collection-header">
+                    <h5>Matching Details</h5>
+                </li>
+            </ul>
+            <ul class="collection">
+                <!-- <li class="collection-header"></li> -->
+                <li class="collection-item">
+                    <div class="tooltip">First Name:<a href="#!" class="secondary-content">{{UDFname}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="First name of user IAV matching service."><i class="material-icons">info</i></a></div>
+                </li>
+                <li class="collection-item">
+                    <div class="tooltip">Last Name:<a href="#!" class="secondary-content">{{UDLname}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Last name of user IAV matching service."><i class="material-icons">info</i></a></div>
+                </li>
+                <li class="collection-item">
+                    <div class="tooltip">Account Number:<a href="#!" class="secondary-content">{{UDANumber}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Account Number of user IAV matching service."><i class="material-icons">info</i></a></div>
+                </li>
+                <!-- <li class="collection-item" >
+                <div class="tooltip">User Name:<a href="#!" class="secondary-content">{{UDUsername}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons">info</i></a></div>
+            </li>
+            <li class="collection-item">
+                <div class="tooltip">Password:<a href="#!" class="secondary-content">{{UDPassword}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons">info</i></a></div>
+            </li>
+            <li class="collection-item" ng-show="GetitemAccountIdStatus1">
+                <div class="tooltip">itemAccountId:<a href="#!" class="secondary-content">{{UDitemAccountId}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons">info</i></a></div>
+            </li> -->
+            </ul>
+        </div>
+        <!-- <div ng-include="viewProgressDetails"></div> -->
+    </div>
+</div>

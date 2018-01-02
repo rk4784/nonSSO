@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PS-App Verification Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/css.css">
+    <link href="styles/sweetalert.css" type="text/css" rel="stylesheet" />
+    <script src="libs/Dag.js"></script>
+    <script src="libs/DagUsers.js"></script>
+    <script src="libs/ThirdParty/jquery-2.1.1.min.js"></script>
+    <script src="libs/ThirdParty/sweetalert.min.js"></script>
+    <script src="libs/ThirdParty/angular.min.js"></script>
+    <script src="libs/ThirdParty/angular-sanitize.js"></script>
+    <script src="libs/ThirdParty/angular-animate.min.js"></script>
+    <script src="libs/ThirdParty/angular-aria.min.js"></script>
+    <script src="libs/ThirdParty/angular-messages.min.js"></script>
+    <script src="libs/ThirdParty/angular-material.min.js"></script>
+    <script src="libs/ThirdParty/angular-material-icons.min.js"></script>
+    <script src="libs/ThirdParty/angular-route.js"></script>
+    <script src="libs/ThirdParty/angular-ui-router.min.js"></script>
+    <script src="libs/ThirdParty/materialize.min.js"></script>
+    <script src="libs/ThirdParty/angucomplete-alt.min.js"></script>
+    <script src="libs/GlobalVariables.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script> -->
+    <script src="libs/app.js"></script>
+    <script src="libs/services.js"></script>
+    <script src="libs/Controllers/HomeController.js"></script>
+    <script src="libs/Controllers/forgotPasswordController.js"></script>
+    <script src="libs/Controllers/LoginController.js"></script>
+    <script src="libs/Controllers/MenuBarController.js"></script>
+    <script src="libs/Controllers/SignupController.js"></script>
+    <script src="libs/Controllers/AddSSOCobrandController.js"></script>
+    <script src="libs/Controllers/AddNONSSOCobrandController.js"></script>
+    <script src="libs/Controllers/EditCobrandController.js"></script>
+    <script src="libs/Controllers/EditSSOCobrandController.js"></script>
+    <script src="libs/Controllers/syncApi/syncApiHomeController.js"></script>
+    <script src="libs/Controllers/syncApi/EditCobrandsyncApiController.js"></script>
+</head>
+
+<body ng-app="FL" ng-controller="MenuBarController">
+    <div class="progress" ng-show="progressBar">
+        <div class="indeterminate"></div>
+    </div>
+    <div class="navbar-fixed">
+        <nav ng-show="navBar" ng-cloak>
+            <div class="nav-wrapper z-depth-3">
+                <ul class="left">
+                    <a href="#home" class="brand-logo" ng-click="activeMenu('home')">Envestnet | Yodlee</a>
+                    <!-- <a href="#home" class="brand-logo" ng-click="activeMenu('home')">AVT</a> -->
+                    <a class="allCobrandSearchBox">
+                        <input class="searchAll" type="search" ng-model="CobrandSearchKeyword" placeholder="Search a cobrand">
+                    </a>
+                    <a data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li ng-class="{'active':activeMenu1 == 'home'}"><a href="#home" ng-click="activeMenu('home')" ng-show="hideInGuestMode"><i class="material-icons" style="font-size: 30px;">home</i></a></li>
+                    <li ng-class="{'active':activeMenu1 == 'adcobrand'}">
+                        <a href="#AddCobrand" ng-click="activeMenu('adcobrand')" ng-show="hideInGuestMode">
+                    <!-- <i class="material-icons" style="font-size: 30px;">add</i> -->Add Cobrand
+                    </a>
+                    </li>
+                    <!-- <li ng-class="{'active':activeMenu1 == 'syncApi'}"><a href="#syncApi" ng-show="hideInGuestMode" ng-click="activeMenu('syncApi')">Sync API</a></li> -->
+                    <li><a href="#projectsDetails" ng-show="ProductDetails">Product Details</a></li>
+                    <li><a href="#SiteDetails" ng-show="SiteDetail">Site Details</a></li>
+                    <!-- <li><a href="#SiteDetails">Vaniila Setup</a></li> -->
+                    <li>
+                    <a ng-click="logoutButtonClicked()">Logout
+                    <!-- <i class="material-icons" style="font-size: 30px;">exit_to_app</i> -->
+                    </a>
+                    </li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li ng-class="{'active':activeMenu1 == 'home'}"><a href="#home" ng-click="activeMenu('home')" ng-show="hideInGuestMode">Dashboard</a></li>
+                    <li ng-class="{'active':activeMenu1 == 'adcobrand'}"><a href="#AddCobrand" ng-click="activeMenu('adcobrand')" ng-show="hideInGuestMode">Add Cobrand</a></li>
+                    <li ng-class="{'active':activeMenu1 == 'syncApi'}"><a href="#syncApi" ng-show="hideInGuestMode" ng-click="activeMenu('syncApi')">Sync API</a></li>
+                    <li><a href="#projectsDetails" ng-show="ProductDetails">Product Details</a></li>
+                    <li><a href="#SiteDetails" ng-show="SiteDetail">Site Details</a></li>
+                    <!-- <li><a href="#SiteDetails">Vaniila Setup</a></li> -->
+                    <li><a ng-click="logoutButtonClicked()">Logout</a></li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <!-- <a class="btn-floating btn-large halfway-fab waves-effect hoverable AddCobrandButtonFloat" style="background: #139BD9;" href="#AddCobrand">
+                <i class="material-icons" style="font-size: 30px;">add</i>
+                </a> -->
+            </div>
+        </nav>
+    </div>
+    <!-- <div id="main"> -->
+    <div ng-view></div>
+    <!-- </div> -->
+</body>
+
+</html>

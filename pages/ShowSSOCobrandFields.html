@@ -1,0 +1,31 @@
+<div class="col s12 m6 l6 xl6" style="padding: 0px 10px 0px 10px !important;">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header active" ng-click="SingleCobrandDetailShowButonClicked()" style="background: #f7f7f7;color:black;"><i class="material-icons">filter_drama</i>Launch Section
+            </div>
+            <div class="collapsible-body launchSection">
+                <div class="row launchSectionInputFields">
+                    <div class="col s12 chooseMultipleFinappInput">
+                        <input placeholder="Enter Finapp Id" type="text" class="chooseMultipleFinappInput" required ng-model="defaultFinappId" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                    </div>
+                </div>
+                <div class="row launchSectionInputFields">
+                    <div class="col s12 chooseMultipleFinappInput">
+                        <input placeholder="Enter Subject Name" type="text" class="chooseMultipleFinappInput" required ng-model="defaultSubject" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                    </div>
+                </div>
+                <div class="row launchSectionInputFields">
+                    <div class="col s12 chooseMultipleFinappInput">
+                        <input placeholder="Extra Params" type="text" class="chooseMultipleFinappInput" required ng-model="defaultExtraParams" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                    </div>
+                </div>
+                
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col s12">
+                        <a class="waves-effect waves-light btn primary launchButton" ng-click="SSOCobrandLogin()">Launch</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

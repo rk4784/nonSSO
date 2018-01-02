@@ -1,0 +1,104 @@
+<div class="homePage">
+    <div class="row">
+        <div class="col s12 m3 l3 xl3">
+            <nav style="margin-bottom: 2px;">
+                <div class="nav-wrapper searchBox">
+                    <div class="input-field">
+                        <input id="search" type="search" style="border:1px solid red;" placeholder="Search your Cobrand" ng-model="CobrandSearchKeyword" required>
+                        <label class="label-icon" for="search"><i class="material-icons search">search</i></label>
+                    </div>
+                </div>
+            </nav>
+            <ul class="collection">
+                <li class="collection-item cobrandList" style="height: 50px" ng-repeat="cobrandname in CobrandList | filter:CobrandSearchKeyword | orderBy:'BankName'" ng-class="{activeClass1 : activeMenu2 === cobrandname}" ng-click="setActive1(cobrandname);">
+                    <span ng-click="CobrandLogin(cobrandname);">
+                        <span class="title">{{cobrandname.BankName}}</span>
+                    </span>
+                    <a class="secondary-content" ng-show="hideInGuestMode"><i ng-click="fetchDetailsForCobrandEdit(cobrandname)" class="material-icons">mode_edit</i>&nbsp&nbsp<i class="material-icons" ng-click="CobrandDeleteButtonClicked(cobrandname,$index)">delete</i></a>
+                </li>
+            </ul>
+        </div>
+        <!-- Cobrand Details Section -->
+        <div class="col s12 m6 l6 xl6">
+            <ul class="collapsible noBoxShadow dataExtractsDataLaunchSection" data-collapsible="accordion" ng-show="LaunchSectionView">
+                <li>
+                    <div class="collapsible-header active" ng-click="SingleCobrandDetailShowButonClicked()" style="background: #f7f7f7;color:black;"><i class="material-icons">filter_drama</i>Launch Section
+                    </div>
+                    <div class="collapsible-body launchSection">
+                        <div class="row" style="margin-top: 20px;margin-bottom: 0px">
+                            <div class="col s12" style="padding:0px 0px 0px 0px !important">
+                                <div ng-show="hideInFL" angucomplete-alt id="ex1" placeholder="Search Your Bank" pause="300" selected-object="selectedSite" local-data="siteLists" local-search="searchBanks" title-field="BankName" minlength="3" input-class="form-control form-control-small" match-class="highlight">
+                                </div>
+                            </div>
+                        </div>
+                        <form name="myform" novalidate>
+                            <div class="row launchSectionInputFields">
+                                <div class="col s12 m3 l3 xl3">Event</div>
+                                <div class="col s12 m9 l9 xl9 right-text">
+                                    <md-radio-group ng-model="eventTrigerType" ng-change="eventTrigerChange()">
+                                        <md-radio-button value="dataupdate">Data Update</md-radio-button>
+                                        <md-radio-button value="refresh">Refresh</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <div class="row launchSectionInputFields" ng-show="eventTrigerChangeInputShow">
+                                <div class="col s12 chooseMultipleFinappInput">
+                                    <input placeholder="Callback Url" type="text" ng-minlength="1" class="chooseMultipleFinappInput" required ng-model="callbackurl" style=" box-shadow: 0 0px 0 0 #3F51B5;border-bottom: 0px solid #3F51B5;">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;" ng-show="setEventTrigerButtonShow">
+                                <div class="col s12">
+                                    <a class="waves-effect waves-light btn primary launchButton" ng-disabled="myform.$invalid" ng-click="eventConfigureButtonClicked()">Set Event</a>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col s12">
+                                <a class="waves-effect waves-light btn primary launchButton" ng-click="dataExtractsEvents()">Data Extract</a>
+                            </div>
+                        </div>
+                        <span ng-show="lastusercreatedShow">
+                            <div class="row launchSectionInputFields">
+                              <div class="col s3">Choose User</div>
+                              <div class="col s9" style="text-align: right;">
+                                  <md-input-container style="width:95%;padding-left:3% !important;">
+                                    <md-select ng-model="lastUserCreatedDataa" ng-change="lastUserCreatedDataChange()">
+                                        <md-option ng-repeat="lastUserCreatedDataa in lastUserCreatedData" ng-value="lastUserCreatedDataa">{{lastUserCreatedDataa.userName}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col s12 m3 l3 xl3 cobrandProgressDetails" ng-show="cobrandProgressDetails">
+            <ul class="collection with-header">
+                <li class="collection-header">
+                    <h4>View Progress</h4>
+                </li>
+            </ul>
+            <ul class="collection">
+                <li class="collection-item">
+                    <div>Cobrand Login<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{CobrandLoginStatusColor}} !important;">{{CobrandLoginStatus}}</i></a></div>
+                </li>
+                <li class="collection-item">
+                    <div>Successful<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{launchFastlinkStatusColor}} !important;">{{launchFastlinkStatus}}</i></a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ul class="collapsible dataExtractsData" data-collapsible="accordion">
+                <li ng-repeat="j in dataExtractsData" class="card" style="margin-top: 10px;">
+                    <div class="collapsible-header" ng-click="getParticularUserData(j.links,$index)"><i class="material-icons">person</i>LoginName: {{j.user.loginName}}</div>
+                    <div class="collapsible-body">
+                        <div style="text-align: center;" ng-show="!dataExtractsLoadingIndecator_show">
+                            <img src="img/loading.gif" style="width: 100px;height: 120px">
+                        </div>
+                        <pre ng-show="dataExtractsDatatext" ng-bind-html="getParticularUserDataa | prettify"></pre>
+                    </div>
+                </li>
+            </ul>
+</div>
+</div>

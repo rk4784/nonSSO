@@ -1,0 +1,27 @@
+<div class="col s12 m3 l3 xl3 z-depth-1" style="padding: 0px 0px 0px 0px !important;">
+<!-- <div class="row">
+    <div class="col s6"><a class="waves-effect waves-light btn">SSO</a></div>
+    <div class="col s6"><a class="waves-effect waves-light btn">nonSSO</a></div>
+</div> -->
+    <!-- <nav style="margin-bottom: 0px;">
+        <div class="nav-wrapper searchBox">
+            <div class="input-field">
+                <input id="search" type="search" style="border:1px solid red;" placeholder="Search your Cobrand" ng-model="CobrandSearchKeyword" required>
+                <label class="label-icon" for="search"><i class="material-icons search">search</i></label>
+                 <i class="material-icons">close</i> 
+            </div>
+        </div>
+    </nav> -->
+    <ul class="collection">
+        <li class="collection-item avatar cobrandList" ng-repeat="cobrandname in CobrandList | filter:CobrandSearchKeyword | orderBy:'BankName'" ng-class="{activeClass1 : activeMenu2 === cobrandname}" ng-click="setActive1(cobrandname);">
+            <span ng-click="CobrandLogin(cobrandname);">
+                        <span class="title">{{cobrandname.BankName}}</span>
+            <p>{{cobrandname.envs}} Envoriment
+                <br/>
+                <span ng-if="cobrandname.Product == 'IAV'">IAV</span><span ng-if="cobrandname.Product == 'FL'">FL</span><span ng-if="cobrandname.Product == 'PFM3.0'">PFM 3.0</span>
+            </p>
+            </span>
+            <a class="secondary-content" ng-show="hideInGuestMode"><i ng-click="fetchDetailsForCobrandEdit(cobrandname)" class="material-icons">mode_edit</i>&nbsp&nbsp<i class="material-icons" ng-click="DeleteCobrandButtonClicked(cobrandname,$index)">delete</i></a>
+        </li>
+    </ul>
+</div>

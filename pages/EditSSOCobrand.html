@@ -1,0 +1,144 @@
+<div style="height: 65px;"></div>
+<div class="AddCobrandPage z-depth-1">
+    <h4 class="Title">Edit Your Cobrand</h4>
+    <form ng-cloak name="AddCobrandForm" novalidate>
+        <br>
+        <md-dialog-content>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Name</label>
+                        <input type="text" ng-model="BankName" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Select Product</label>
+                        <md-select ng-model="ProductType" ng-change="ProductTypeCheck()" required>
+                            <md-option ng-repeat="ProductType in productTypes" ng-value="ProductType">{{ProductType}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <span ng-show="hideInFL">
+                <div class="row launchSectionInputFieldsNormal">
+                    <div class="col s12">
+                        <md-input-container style="width:100%;">
+                            <label>is_itemAccoutIdFlow</label>
+                            <md-select ng-model="is_itemAccoutIdFlow" required="is_IAV">
+                                <md-option ng-repeat="is_itemAccoutIdFlow in itemAccoutIdFlowType" ng-value="is_itemAccoutIdFlow">{{is_itemAccoutIdFlow}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="row launchSectionInputFieldsNormal">
+                    <div class="col s12">
+                        <md-input-container style="width:100%;">
+                            <label>Full Name Matching</label>
+                            <md-select ng-model="is_ANM" required="is_IAV">
+                                <md-option ng-repeat="is_ANM in ANMTypes" ng-value="is_ANM">{{is_ANM}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+            </span>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>TARGET_URL Url</label>
+                        <input type="text" ng-model="TARGET_URL" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>CONSUMER_URL Url</label>
+                        <input type="text" ng-model="CONSUMER_URL" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>UNIQUE ISSUER</label>
+                        <input type="text" ng-model="UNIQUE_ISSUER" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>ASS ENCRYPT FLAG</label>
+                        <input type="text" ng-model="ASS_ENCRYPT_FLAG" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>MULTI_KEY_FLAG</label>
+                        <input type="text" ng-model="MULTI_KEY_FLAG" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>ATTRIB_ENCRYPTION_MECHANISM</label>
+                        <input type="text" ng-model="ATTRIB_ENCRYPTION_MECHANISM" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>ENCODE_ATTR_FLAG</label>
+                        <input type="text" ng-model="ENCODE_ATTR_FLAG" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>SIGN_RES_FLAG</label>
+                        <input type="text" ng-model="SIGN_RES_FLAG" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>SIGN_ASSER_FLAG</label>
+                        <input type="text" ng-model="SIGN_ASSER_FLAG" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>SIGN_ALIAS_KEY</label>
+                        <input type="text" ng-model="SIGN_ALIAS_KEY" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>LIT_FLAG</label>
+                        <input type="text" ng-model="LIT_FLAG" required>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s12">
+                <div class="footer">
+                    <button class="waves-effect waves-light btn primary createCobrandButton" ng-click="editButtonClicked()" ng-disabled="AddCobrandForm.$invalid">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

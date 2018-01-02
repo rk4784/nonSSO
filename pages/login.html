@@ -1,0 +1,54 @@
+<div class="loginPageClass">
+    <div class="loginPageContainer">
+        <div class="detailsSection">
+            <!-- <p style="font-size: 30px">PS-AVT(App Verification Tool)</p> -->
+            <img style="width: 20%;margin-top: 8%;" src="http://finovate.com/wp-content/uploads/2016/09/Envestnet-Yodlee-Logo-copy.png">
+            <p style="font-size: 20px;padding-top: 10%;">Manage your
+                <br>SSO and nonSSO cobrands.
+                <br>
+                <br> This tool can also be used for</p>
+            <li>Post Deployment Verification(PDV)</li>
+            <!-- <li>Support PS Custom Application Development</li> -->
+            <li>Client Demo</li>
+            <li>Technical Consultants who are working on cobranding. </li>
+            <li>BAs for their Client Demos</li>
+            <li>Stakeholders(QA, Tcs and PJMs) who can do PDVs</li>
+            <!-- <li>This tool helps in automating whole process and also is useful for both IAV matching service and data service.</li> -->
+            </p>
+        </div>
+        <div class="inputFieldSectoin">
+            <div style="color: #139BD9;font-size: 30px;">Login</div>
+            <div style="padding-top: 10px;color: rgba(0,0,0,0.4);font-weight: bold;">Be great at what you do.
+                <br> Get started - it's free.</div>
+            <form name="loginForm" novalidate class="Loginform">
+                <div class="row">
+                    <div class="col s12">
+                        <md-input-container style="width:80%">
+                            <label style="text-align: left;">Email Address</label>
+                            <input type="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" ng-model="uname" required>
+                        </md-input-container>
+                    </div>
+                    <div class="col s12">
+                        <md-input-container style="width:80%">
+                            <label style="text-align: left;">Password</label>
+                            <input type="{{passwordType}}" ng-model="password" id="input" required>
+                            <a id="input_img" ng-click="showPasswordButtonClicked()">{{showText}}</a>
+                        </md-input-container>
+                    </div>
+                    <div class="s12 m6">
+                        <a href="#forgotPassword" class="link">Forgot | Change Password?</a>
+                    </div>
+                    <div class="s12 LoginPageButton" style="padding-top: 10px">
+                       
+                        <button class="waves-effect btn hoverable lloginButton" ng-click="loginButtonClicked()" ng-disabled="loginForm.$invalid">Log in</button>
+
+                        <button class="waves-effect btn hoverable lsignupButton" ng-click="goToSignupPage()">Sign up</button>
+                        <!-- <a href="#signup" style="width: 100%;" class="link">Create an Account</a> -->
+                        <br>
+                    </div>
+                    <a ng-click="guestLogin()" class="link" style="text-align: left;width: 100%;display: block;">Guest Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

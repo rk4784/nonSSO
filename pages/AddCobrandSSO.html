@@ -1,0 +1,200 @@
+<br>
+<br>
+<br>
+<br>
+<div class="AddCobrandPage z-depth-1">
+    <h4 class="Title">Add New SSO Cobrand</h4>
+    <form ng-cloak name="AddCobrandForm" novalidate>
+        <md-dialog-content>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Cobrand Name</label>
+                        <input type="text" ng-model="BankName" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Envs</label>
+                        <md-select ng-model="envs" required>
+                            <md-option ng-repeat="envs in Envstypes" ng-value="envs">{{envs}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Select Product</label>
+                        <md-select ng-model="ProductType" ng-change="ProductTypeCheck()" required>
+                            <md-option ng-repeat="ProductType in productTypes" ng-value="ProductType">{{ProductType}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <span ng-show="hideInFL">
+                <div class="row launchSectionInputFieldsNormal">
+                    <div class="col s12">
+                        <md-input-container style="width:100%;">
+                            <label>is_itemAccoutIdFlow</label>
+                            <md-select ng-model="is_itemAccoutIdFlow" required="is_IAV">
+                                <md-option ng-repeat="is_itemAccoutIdFlow in itemAccoutIdFlowType" ng-value="is_itemAccoutIdFlow">{{is_itemAccoutIdFlow}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="row launchSectionInputFieldsNormal">
+                    <div class="col s12">
+                        <md-input-container style="width:100%;">
+                            <label>Full Name Matching</label>
+                            <md-select ng-model="is_ANM" required="is_IAV">
+                                <md-option ng-repeat="is_ANM in ANMTypes" ng-value="is_ANM">{{is_ANM}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                </div>
+            </span>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Issuer</label>
+                        <input type="text" ng-model="UNIQUE_ISSUER" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>SAML Version</label>
+                        <md-select ng-model="SAML_Version" required>
+                            <md-option ng-repeat="SAML_Version in SAML_Versions" ng-value="SAML_Version">{{SAML_Version}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>CONSUMER_URL</label>
+                        <input type="text" ng-model="CONSUMER_URL" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>TARGET_URL</label>
+                        <input type="text" ng-model="TARGET_URL" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Assertion Encryption</label>
+                        <md-select ng-model="ASS_ENCRYPT_FLAG" required>
+                            <md-option ng-repeat="ASS_ENCRYPT_FLAG in ASS_ENCRYPT_FLAGS" ng-value="ASS_ENCRYPT_FLAG">{{ASS_ENCRYPT_FLAG}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Multiple Keys</label>
+                        <md-select ng-model="MULTI_KEY_FLAG" required>
+                            <md-option ng-repeat="MULTI_KEY_FLAG in MULTI_KEY_FLAGS" ng-value="MULTI_KEY_FLAG">{{MULTI_KEY_FLAG}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>CUSTOM_ENCRYPTION_FLAG</label>
+                        <md-select ng-model="CUSTOM_ENCRYPTION_FLAG" required>
+                            <md-option ng-repeat="CUSTOM_ENCRYPTION_FLAG in CUSTOM_ENCRYPTION_FLAGS" ng-value="CUSTOM_ENCRYPTION_FLAG">{{CUSTOM_ENCRYPTION_FLAG}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Attribute Encryption</label>
+                        <md-select ng-model="ENCRYPT_FLAG" required>
+                            <md-option ng-repeat="ENCRYPT_FLAG in ENCRYPT_FLAGS" ng-value="ENCRYPT_FLAG">{{ENCRYPT_FLAG}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Attribute Encryption Mechanism</label>
+                        <md-select ng-model="ATTRIB_ENCRYPTION_MECHANISM" required>
+                            <md-option ng-repeat="ATTRIB_ENCRYPTION_MECHANISM in ATTRIB_ENCRYPTION_MECHANISMS" ng-value="ATTRIB_ENCRYPTION_MECHANISM">{{ATTRIB_ENCRYPTION_MECHANISM}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Attribute Encoding</label>
+                        <md-select ng-model="ENCODE_ATTR_FLAG" required>
+                            <md-option ng-repeat="ENCODE_ATTR_FLAG in ENCODE_ATTR_FLAGS" ng-value="ENCODE_ATTR_FLAG">{{ENCODE_ATTR_FLAG}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Sign Response</label>
+                        <md-select ng-model="SignResponse" required>
+                            <md-option ng-repeat="SignResponse in SignResponseS" ng-value="SignResponse">{{SignResponse}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Sign Assertion</label>
+                        <md-select ng-model="SignAssertion" required>
+                            <md-option ng-repeat="SignAssertion in SignAssertionS" ng-value="SignAssertion">{{SignAssertion}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal1">
+                <div class="col s12">
+                    <md-input-container style="width:100%">
+                        <label>Signing alias Key</label>
+                        <input type="text" ng-model="SIGN_ALIAS_KEY" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row launchSectionInputFieldsNormal">
+                <div class="col s12">
+                    <md-input-container style="width:100%;">
+                        <label>Link Integrity Token</label>
+                        <md-select ng-model="LIT_FLAG" required>
+                            <md-option ng-repeat="LIT_FLAG in LIT_FLAGS" ng-value="LIT_FLAG">{{LIT_FLAG}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s12">
+                <div class="footer">
+                    <button class="waves-effect waves-light btn primary createCobrandButton" ng-click="addSSOCobrandButtonClicked()" ng-disabled="AddCobrandForm.$invalid">Create Cobrand</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

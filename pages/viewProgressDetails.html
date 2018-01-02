@@ -1,0 +1,51 @@
+<div class="col s12 m3 l3 xl3 cobrandProgressDetails" ng-show="cobrandProgressDetails">
+    <ul class="collection with-header">
+        <li class="collection-header">
+            <h5>View Progress</h5>
+        </li>
+    </ul>
+    <ul class="collection">
+        <!-- <li class="collection-header"></li> -->
+        <li class="collection-item">
+            <div>Cobrand Login<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{CobrandLoginStatusColor}} !important;">{{CobrandLoginStatus}}</i></a></div>
+        </li>
+        <li class="collection-item">
+            <div>User Login<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{UserLoginStatusColor}} !important;">{{UserLoginStatus}}</i></a></div>
+        </li>
+        <li class="collection-item">
+            <div>Get Token<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{GetTokenStatusColor}} !important;">{{GetTokenStatus}}</i></a></div>
+        </li>
+        <li class="collection-item" ng-show="GetitemAccountIdStatus1">
+            <div>Get itemAccountId<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{GetitemAccountIdStatusColor}} !important;">{{GetitemAccountIdStatus}}</i></a></div>
+        </li>
+        <li class="collection-item">
+            <div>Successful<a href="#!" class="secondary-content"><i class="material-icons" style="color: {{launchFastlinkStatusColor}} !important;">{{launchFastlinkStatus}}</i></a></div>
+        </li>
+    </ul>
+    <ul class="collection with-header" ng-show="showMatchingDetails">
+        <li class="collection-header">
+            <h5>Matching Details</h5>
+        </li>
+    </ul>
+    <ul class="collection">
+        <!-- <li class="collection-header"></li> -->
+        <li class="collection-item">
+            <div class="tooltip">First Name:<a href="#!" class="secondary-content">{{UDFname}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="First name of user IAV matching service."><i class="material-icons">info</i></a></div>
+        </li>
+        <li class="collection-item">
+            <div class="tooltip">Last Name:<a href="#!" class="secondary-content">{{UDLname}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Last name of user IAV matching service."><i class="material-icons">info</i></a></div>
+        </li>
+        <li class="collection-item">
+            <div class="tooltip">Account Number:<a href="#!" class="secondary-content">{{UDANumber}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Account Number of user IAV matching service."><i class="material-icons">info</i></a></div>
+        </li>
+        <!-- <li class="collection-item" >
+                <div class="tooltip">User Name:<a href="#!" class="secondary-content">{{UDUsername}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons">info</i></a></div>
+            </li>
+            <li class="collection-item">
+                <div class="tooltip">Password:<a href="#!" class="secondary-content">{{UDPassword}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons">info</i></a></div>
+            </li>
+            <li class="collection-item" ng-show="GetitemAccountIdStatus1">
+                <div class="tooltip">itemAccountId:<a href="#!" class="secondary-content">{{UDitemAccountId}}</a><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons">info</i></a></div>
+            </li> -->
+    </ul>
+</div>
