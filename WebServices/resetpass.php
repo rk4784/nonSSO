@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
-header('Content-type: application/x-www-form-urlencoded');
-header("Access-Control-Allow-Origin: *");
+// header('Content-type: application/x-www-form-urlencoded');
+// header("Access-Control-Allow-Origin: *");
 
 if(isset($_POST['pass'])){
 	
